@@ -39,7 +39,7 @@ public abstract class WorldSpecificSaveHandlerMixin_Forge {
     @Shadow private File dataDir;
 
     @Redirect(method = "getMapFileFromName", at = @At(value = "INVOKE", target = "Ljava/io/File;mkdirs()Z", remap = false))
-    private boolean sponge$onCreateDataDirectory(File dir) {
+    private boolean forgeImpl$onCreateDataDirectory(File dir) {
         return WorldManager.mkdirsIfSaveable(dir);
     }
 }
